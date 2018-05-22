@@ -1,0 +1,73 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/ahmad/projects/proctoria/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/ahmad/projects/proctoria/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/ahmad/projects/proctoria/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/ahmad/projects/proctoria/app/controllers/static_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/ahmad/projects/proctoria/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/ahmad/projects/proctoria/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/ahmad/projects/proctoria/app/models/admin_user.rb": [
+        0,
+        0
+      ],
+      "/Users/ahmad/projects/proctoria/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/ahmad/projects/proctoria/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/ahmad/projects/proctoria/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1527007810
+  }
+}
