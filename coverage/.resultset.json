@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/ahmad/projects/proctoria/app/models/user.rb": [
+      "/Users/ahmad/projects/aidaround/app/models/user.rb": [
         1,
         null,
         null,
@@ -12,22 +12,22 @@
         null,
         null
       ],
-      "/Users/ahmad/projects/proctoria/app/models/application_record.rb": [
+      "/Users/ahmad/projects/aidaround/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/ahmad/projects/proctoria/app/helpers/application_helper.rb": [
+      "/Users/ahmad/projects/aidaround/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/ahmad/projects/proctoria/app/controllers/static_controller.rb": [
+      "/Users/ahmad/projects/aidaround/app/controllers/static_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/Users/ahmad/projects/proctoria/app/controllers/application_controller.rb": [
+      "/Users/ahmad/projects/aidaround/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -41,33 +41,33 @@
         null,
         null
       ],
-      "/Users/ahmad/projects/proctoria/app/mailers/application_mailer.rb": [
+      "/Users/ahmad/projects/aidaround/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/ahmad/projects/proctoria/app/models/admin_user.rb": [
+      "/Users/ahmad/projects/aidaround/app/models/admin_user.rb": [
         0,
         0
       ],
-      "/Users/ahmad/projects/proctoria/app/jobs/application_job.rb": [
+      "/Users/ahmad/projects/aidaround/app/jobs/application_job.rb": [
         0,
         0
       ],
-      "/Users/ahmad/projects/proctoria/app/channels/application_cable/connection.rb": [
+      "/Users/ahmad/projects/aidaround/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/ahmad/projects/proctoria/app/channels/application_cable/channel.rb": [
+      "/Users/ahmad/projects/aidaround/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1527007810
+    "timestamp": 1527895448
   }
 }
