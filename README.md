@@ -1,24 +1,23 @@
-# README
+# AidAround  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the final project for We Got Coders Bootcamp i have attend   
 
-Things you may want to cover:
+* What does it do  
 
-* Ruby version
+* Key statistics for the application  
+code to test ratio and test coverage:    
+lines of code :  
+key gems:  
+APIs:     
 
-* System dependencies
+* Deployed application's link  
 
-* Configuration
+* The pivotal tracker's links   
 
-* Database creation
+* How to use the application and its core behaviour
 
-* Database initialization
+* Visit my portfolio at:  
 
-* How to run the test suite
+* Find me on Twitter at: 
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Find me Linked In at: 
