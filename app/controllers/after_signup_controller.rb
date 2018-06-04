@@ -4,14 +4,14 @@ class AfterSignupController < ApplicationController
   steps :add_postcode, :upload_avatar
 
   def show
-    @user = user
+     @user = current_user
     render_wizard
   end
 
   def update
-    @user = user
-    @user.update_attributes(params[:user])
-    render_wizard @user
+    # @user = user
+    # @user.update_attributes(params[:user])
+    render_wizard  #@user
   end
 
 end

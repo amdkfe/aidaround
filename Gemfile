@@ -31,5 +31,5 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'wicked'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'wicked'
