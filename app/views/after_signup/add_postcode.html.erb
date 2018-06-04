@@ -1,0 +1,15 @@
+<h1>Step 3</h1>
+<h2>Great lets find your neighbourhood</h2>
+
+<%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
+  <div class="field">
+    <%= f.text_field :postcode, placeholder: "Enter you post code" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
+
+
+
+
