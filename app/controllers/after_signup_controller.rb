@@ -9,9 +9,16 @@ class AfterSignupController < ApplicationController
   end
 
   def update
-    # @user = user
-    # @user.update_attributes(params[:user])
-    render_wizard  #@user
+    @user = current_user
+    @user.update_attributes(user_params)
+    render_wizard  @user
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :email, :password, :postcode)
   end
 
 end

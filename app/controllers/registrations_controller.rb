@@ -2,8 +2,8 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    # # @user = User.new(params[:id])
-    # session[:user_id] = current_user.id
+    @user = User.new(params[:id])
+    session[:user_id] = current_user.id
     # redirect_to after_signup_path
     # # binding.pry
     '/after_signup/add_postcode'

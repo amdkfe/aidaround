@@ -1,7 +1,24 @@
 <p>Please Fill in your post code!</p>
-<%= form_for(@user, :url => wizard_path, :method => :put) do |f| %>
-  <%= f.text_field :postcode, :placeholder => "post code code" %>
-  <%= f.submit 'Next', :class => 'btn btn-primary' %>
+
+
+
+
+
+
+<%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
+
+  <div class="field">
+    <%= f.label :postcode %><br />
+    <%= f.text_field :postcode, autocomplete: "off", placeholder: "postcode" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
 <% end %>
 
+
 <%= link_to 'skip', next_wizard_path %>
+
+
+
