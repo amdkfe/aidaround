@@ -1,24 +1,15 @@
-<p>Please Fill in your post code!</p>
-
-
-
-
-
+<h1>Step 3</h1>
+<h2>Great lets find your neighbourhood</h2>
 
 <%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
-
   <div class="field">
-    <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autocomplete: "off", placeholder: "postcode" %>
+    <%= f.text_field :postcode, placeholder: "Enter you post code" %>
   </div>
-
   <div class="actions">
     <%= f.submit "Save" %>
   </div>
 <% end %>
 
-
-<%= link_to 'skip', next_wizard_path %>
 
 
 

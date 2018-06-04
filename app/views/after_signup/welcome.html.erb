@@ -1,0 +1,17 @@
+<h1>Welcome <%= current_user.username.capitalize %> </h1>
+
+<div>
+  your email is: <%= current_user.email %>
+</div>
+
+<div>
+  your postcode is: <%= current_user.postcode %>
+</div>
+
+
+<div>
+  <%= link_to 'Lets Aid Around', root_path %>
+</div>
+<div>
+<%= link_to 'Lets Create Tasks', root_path %>
+</div>

@@ -1,13 +1,6 @@
-
-
-<%= link_to 'Lets Go', next_wizard_path %>
+<h1>Step 2</h1>
+<h2>Hey <%= current_user.username.capitalize %> how about a smiling photo?! </h2>
 
 <div>
-  <%= current_user.postcode %>
-</div>
-<div>
-  <%= current_user.username %>
-</div>
-<div>
-  <%= current_user.email %>
+  <%= link_to 'Skip', next_wizard_path %>
 </div>
