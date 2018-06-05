@@ -21,6 +21,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'simplecov'
+  gem 'dotenv-rails', '~> 2.4'
 end
 
 group :development do
@@ -33,3 +34,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'wicked'
+gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick', '~> 4.8'
+gem 'carrierwave-aws', '~> 1.3'
+gem 'dotenv-rails', '~> 2.4'
