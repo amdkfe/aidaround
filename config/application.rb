@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 require 'carrierwave'
 require 'carrierwave/orm/activerecord'
+require 'dotenv-rails'
 
 module Aidaround
   class Application < Rails::Application

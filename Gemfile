@@ -21,6 +21,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'simplecov'
+  gem 'dotenv-rails', '~> 2.4'
 end
 
 group :development do
