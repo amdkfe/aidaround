@@ -1,5 +1,15 @@
 <h1> aidaround </h1>
-<br/>
+
+<%= video_tag(
+  'aidaround.mp4',
+  id: 'background',
+  autoplay: true,
+  loop: true,
+  muted: true,
+  poster: 'aidaround.jpg')
+%>
+
+
 <div>
   your username is :<%= current_user.username %>
 </div>
