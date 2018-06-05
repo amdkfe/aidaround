@@ -1,6 +1,15 @@
 <h1>Step 2</h1>
 <h2>Hey <%= current_user.username.capitalize %> how about a smiling photo?! </h2>
 
+<%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
+  <div class="field">
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
+
 <div>
   <%= link_to 'Skip', next_wizard_path %>
 </div>
