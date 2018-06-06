@@ -10,6 +10,17 @@
   </div>
 <% end %>
 
+<% if !current_user.avatar.nil? %>
+      
+       <%= image_tag "https://s3.eu-west-2.amazonaws.com/aidaround-avatar-bucket/default_avatar/avad.png", width: '20%' %>
+    <% else %>
+     <%= p 'hi' %>
+    <%= image_tag current_user.avatar, width: '100%' %>
+<% end %>
+
+
+
+
 <div>
   <%= link_to 'Skip', next_wizard_path %>
 </div>
