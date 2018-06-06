@@ -1,5 +1,0 @@
-<% if @curent_user.avatar.new_record? %>
-  alert ('hi');
-<% else %>
-$("#new_avatar").append("<%= j render(@curent_user.avatar %>");
-<% end%>

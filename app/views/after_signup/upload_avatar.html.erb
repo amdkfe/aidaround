@@ -1,12 +1,7 @@
 <h1>Step 2</h1>
 <h2>Hey <%= current_user.username.capitalize %> how about a smiling photo?! </h2>
 
-<!-- <div id ="new_avatar">
-
-  <%= image_tag current_user.avatar, width: '20%' %>
-
-</div> -->
-
+<%= render "avatar" %> 
 
 <%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
   <div class="field">
@@ -17,17 +12,6 @@
   </div>
 <% end %>
 
-<%= link_to('roar', '#', :onclick => "jsRoar('ahmad'); return true;") %>
-<%= render "avatar" %> 
-
-
-
-
-
 <div>
-  <%= link_to 'Skip', next_wizard_path %>
+  <%= link_to 'Next', next_wizard_path %>
 </div>
-
-
-<!-- <input type="file" id="input" onchange="previewFile()"> -->
-<img src="" height="200">
