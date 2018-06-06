@@ -1,22 +1,25 @@
 <h1>Step 2</h1>
 <h2>Hey <%= current_user.username.capitalize %> how about a smiling photo?! </h2>
 
+<!-- <div id ="new_avatar">
+
+  <%= image_tag current_user.avatar, width: '20%' %>
+
+</div> -->
+
+
 <%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
   <div class="field">
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, :id => "input", :onchange => "previewFile()" %>
   </div>
   <div class="actions">
     <%= f.submit "Save" %>
   </div>
 <% end %>
 
-<% if !current_user.avatar.nil? %>
-      
-       <%= image_tag "https://s3.eu-west-2.amazonaws.com/aidaround-avatar-bucket/default_avatar/avad.png", width: '20%' %>
-    <% else %>
-     <%= p 'hi' %>
-    <%= image_tag current_user.avatar, width: '100%' %>
-<% end %>
+<%= link_to('roar', '#', :onclick => "jsRoar('ahmad'); return true;") %>
+<%= render "avatar" %> 
+
 
 
 
@@ -24,3 +27,7 @@
 <div>
   <%= link_to 'Skip', next_wizard_path %>
 </div>
+
+
+<!-- <input type="file" id="input" onchange="previewFile()"> -->
+<img src="" height="200">
