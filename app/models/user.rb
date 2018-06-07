@@ -7,5 +7,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :username, :email
 
   mount_uploader :avatar, AvatarUploader
+
+  # geocoded_by :address
   
 end

@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require jquery-fileupload/basic
+//= require gmaps/google
 //= require turbolinks
 //= require_tree .
