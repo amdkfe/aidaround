@@ -1,5 +1,7 @@
 class AfterSignupController < ApplicationController
   
+  respond_to :html, :js
+
   #created controller to set the actions and views of the multi pages after 
   #the signup form and used the Wicked gem to define steps and next paths 
   include Wicked::Wizard
@@ -14,6 +16,11 @@ class AfterSignupController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
     render_wizard  @user
   end
 
