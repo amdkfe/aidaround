@@ -13,10 +13,7 @@
   <%= link_to 'Lets Aid Around', root_path %>
 </div>
 <div>
-<%= link_to 'Lets Create Tasks', root_path %>
+
+<%= link_to 'Lets Create Tasks', user_path, :id => current_user.id%>
 </div>
-
-
-your lat is <%= current_user.latitude %>
-your long is <%= current_user.longitude %>
 
