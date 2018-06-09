@@ -33,6 +33,7 @@ document.addEventListener("turbolinks:load", function() {
     //Get current address
     function getCurrentAddress(location) {
         var address_field = document.getElementById("address");
+        var save_button = document.getElementById("save");
         var lat_field = document.getElementById("latitude");
         var lon_field = document.getElementById("longitude");
         currgeocoder.geocode({
@@ -43,6 +44,8 @@ document.addEventListener("turbolinks:load", function() {
                 $("#address").html(results[0].formatted_address);
                 $("#latitude").html(results[0].formatted_address);
                 address_field.value = results[0].formatted_address;
+                address_field.type = 'text';
+                save_button.type = 'submit';
                 lat_field.value = html5Lat;
                 lon_field.value = html5Lon;
                   var map = new GMaps({
