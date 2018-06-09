@@ -32,14 +32,19 @@ document.addEventListener("turbolinks:load", function() {
 
     //Get current address
     function getCurrentAddress(location) {
-        var el = document.getElementById("address");
+        var address_field = document.getElementById("address");
+        var lat_field = document.getElementById("latitude");
+        var lon_field = document.getElementById("longitude");
         currgeocoder.geocode({
             'location': location
         }, function (results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 console.log(results[0]);
                 $("#address").html(results[0].formatted_address);
-                el.value = results[0].formatted_address;
+                $("#latitude").html(results[0].formatted_address);
+                address_field.value = results[0].formatted_address;
+                lat_field.value = html5Lat;
+                lon_field.value = html5Lon;
                   var map = new GMaps({
                   div: '#map',
                   lat: html5Lat,

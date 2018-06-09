@@ -16,10 +16,6 @@ class AfterSignupController < ApplicationController
   def update
     @user = current_user
     @user.update_attributes(user_params)
-    respond_to do |format|
-      format.html
-      format.json
-    end
 
     render_wizard  @user
   end
@@ -28,7 +24,7 @@ class AfterSignupController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :postcode, :avatar)
+    params.require(:user).permit(:username, :email, :password, :postcode, :avatar, :latitude, :longitude)
   end
 
 end
