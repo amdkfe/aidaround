@@ -10,12 +10,17 @@
 
 <%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
   <div class="address">
-    <%= f.text_field :postcode, placeholder: "Enter you post code", :id => "address" , :value =>''%>
+    <%= f.text_field :postcode, placeholder: "Enter you post address", :id => "address" , :value =>''%>
+  </div>
+  <div class="latitude">
+    <%= f.text_field :latitude, placeholder: "latitude", :id => "latitude" , :value =>'', :type => 'hidden'%>
+    <%= f.text_field :longitude, placeholder: "longitude", :id => "longitude" , :value =>'', :type => 'hidden'%>
   </div>
   <div class="actions">
     <%= f.submit "Save", :id => "save" %>
   </div>
 <% end %>
+
 
 
 <script>
