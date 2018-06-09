@@ -8,6 +8,12 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  # geocoded_by :address
+  geocoded_by :postcode
+
+  # def postcode
+  #   [postcode].compact.join(", ")
+  # end
+
+
   
 end
