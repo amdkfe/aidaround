@@ -8,15 +8,11 @@
   your adress is: <%= current_user.postcode %>
 </div>
 
+<div>
+  <%= link_to 'Create Tasks', {controller: "users", action: "show", id: current_user.id} %>
+</div>
 
 <div>
   <%= link_to 'Lets Aid Around', root_path %>
 </div>
-<div>
-<%= link_to 'Lets Create Tasks', root_path %>
-</div>
-
-
-your lat is <%= current_user.latitude %>
-your long is <%= current_user.longitude %>
 
