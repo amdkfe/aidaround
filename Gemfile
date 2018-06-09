@@ -43,6 +43,8 @@ gem 'dotenv-rails', '~> 2.4'
 gem 'gmaps4rails'
 gem 'geocoder'
 gem 'webpacker', '~> 3.5'
+gem 'bootstrap'
+gem 'underscore-rails'
 
 
 
