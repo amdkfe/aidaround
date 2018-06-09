@@ -8,12 +8,18 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  geocoded_by :postcode
 
-  # def postcode
-  #   [postcode].compact.join(", ")
-  # end
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+
+  def address
+    [street, city, state, country, postcode].compact.join(', ')
+  end
 
 
-  
+  def address_changed?
+    attrs = %w(street city state postcode country)
+    attrs.any?{|a| send "#{a}_changed?"}
+  end
+
 end

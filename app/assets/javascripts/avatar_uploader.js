@@ -1,5 +1,5 @@
 function previewFile(){
-  var preview = document.querySelector('img');
+  var preview = document.querySelectorAll('img')[1];
   var file    = document.getElementById('input').files[0];
   var reader  = new FileReader();
 
