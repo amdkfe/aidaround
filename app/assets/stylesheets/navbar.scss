@@ -1,0 +1,35 @@
+.navbar ul {
+  display: inline;
+}
+
+ul.deviselink .logo{
+  list-style: none; 
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+ul.deviselink li { 
+  display: inline; 
+}
+
+ul.logo li {
+  display: inline; 
+  text-decoration: none; 
+}
+ul.logo li:hover{
+  display: inline; 
+  text-decoration: none; 
+}
+
+ul.logo li img{ 
+  width: 50px; 
+}
+
+ul.logo li h2{
+  display: inline; 
+  text-decoration: none;
+}
+
+ul.logo li a:hover, a:visited, a:link, a:active  { 
+  text-decoration: none ;
+}
