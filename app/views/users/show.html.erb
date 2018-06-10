@@ -1,15 +1,15 @@
 
 <div>
-  <%= image_tag current_user.avatar, width: '20%' %>
+  <%= image_tag @user.avatar, width: '20%' %>
 </div>
 <div>
-  Username: <%= current_user.username %>
+  Username: <%= @user.username %>
 </div>
 <div>
-  Email: <%= current_user.email %>
+  Email: <%= @user.email %>
 </div>
 <div>
-  Address: <%= current_user.postcode %>
+  Address: <%= @user.postcode %>
 </div>
 
 <%= tag.div nil, id: 'profilemap' %>
@@ -17,12 +17,12 @@
 <script>
   var map = new GMaps({
     div: '#profilemap',
-    lat: <%= current_user.latitude %>,
-    lng: <%= current_user.longitude %>,
+    lat: <%= @user.latitude %>,
+    lng: <%= @user.longitude %>,
   });
   map.addMarker({
-    lat: <%= current_user.latitude %>,
-    lng: <%= current_user.longitude %>,
-    title: '<%= current_user.postcode %>',
+    lat: <%= @user.latitude %>,
+    lng: <%= @user.longitude %>,
+    title: '<%= @user.postcode %>',
 })
 </script>

@@ -251,39 +251,26 @@ geo = [
   [51.527935,-0.111874],
 ]
 
+ava1 = "https://api.adorable.io/avatars/300/"
+ava2 = "abtt@adao"
+ava4 = ".png"
 
 
-
-100.times do |user, i|
-  i = 0
-  i += 1
+1.times do
   loc = geo.sample(1)[0]
+  ava3 = ava2.chars.shuffle.join
   User.create!([{
     username: Faker::Name.first_name,
-    email: "email#{{i}}@1",
+    email: Faker::Internet.safe_email,
     password: "aaaaaa",
-    avatar: Faker::Avatar.image("my-own-slug", "300x300", "png", "set2", "bg1"),
+    remote_avatar_url: "#{ava1}#{ava3}#{ava4}",
     postcode: Faker::Address.postcode,
-    Latitude: loc[0],
-    Longitude: loc[1],
+    latitude: loc[0],
+    longitude: loc[1],
     street: Faker::Address.street_address,
-    city: London,
-    state: Greater London,
-    country: UK,
+    city: "London",
+    state: "Greater London",
+    country: "UK",
     points: Faker::Number.between(10, 99),
-    type: "user"
   }])
 end
-
-
-  # User.create!(email: "email1@email", username: "user1", password: 'aaaaaa', postcode: 'SW19 6HN', Latitude:51.442834, Longitude:  -0.216719, avatar: )
-# Latitude:51.405285, Longitude:-0.132066,street:211 Northborough Road,London,city:London,Greater London,UK,SW16 4TU,United Kingdom
-# Latitude:51.492387, Longitude:-0.15404,street:63 Chester Row,London,London,city: London,UK,SW1W 8JL,United Kingdom
-# Latitude:51.439628, Longitude:-0.216283,street:30 Murfett Close,London,city:London,UK,SW19 6QB,United Kingdom
-# Latitude:51.461326, Longitude:-0.198292,street:5 Knightley Walk,city:London,UK,SW18 1HB,United Kingdom
-# Latitude:51.480001, Longitude:-0.193884,street:22 Walham Grove,city:London,UK,SW6 2DH,United Kingdom
-# Latitude:51.497238, Longitude:-0.188004,street:45 Cornwall Gardens,city:London,UK,SW7,United Kingdom
-# Latitude:51.40959, Longitude:-0.230953,street:48 Coombe Lane,London,city:UK,SW20 0LA,United Kingdom
-# Latitude:51.420293, Longitude:-0.182993,street:16 East Road,London,city:UK,SW19 1UZ,United Kingdom
-# Latitude:51.443983, Longitude:-0.222558,street:78 Wimbledon Park Side,city:London,UK,SW19 5LH,United Kingdom
-# Latitude:51.482794, Longitude:-0.175342,street: 12 Moravian Place,London,city:UK,SW10 0DA,United Kingdom
