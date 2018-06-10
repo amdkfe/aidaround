@@ -48,7 +48,7 @@ document.addEventListener("turbolinks:load", function() {
                 save_button.type = 'submit';
                 lat_field.value = html5Lat;
                 lon_field.value = html5Lon;
-                  var map = new GMaps({
+                var map = new GMaps({
                   div: '#map',
                   lat: html5Lat,
                   lng: html5Lon

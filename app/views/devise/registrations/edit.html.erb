@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :postcode %><br />
-    <%= f.text_field :postcode, autocomplete: "postcode", placeholder: "#{@user.postcode}" %>
+    <%= f.text_field :postcode, autocomplete: "address", placeholder: "#{@user.postcode}" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
