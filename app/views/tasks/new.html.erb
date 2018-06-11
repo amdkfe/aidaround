@@ -1,0 +1,18 @@
+<%= form_for @task do |f| %>
+  <div> <%= f.text_field :user_id , placeholder: "user_id", value: current_user.id%> </div>
+  <div> <%= f.text_field :address , placeholder: "address", value: current_user.postcode%> </div>
+  <div> <%= f.text_field :latitude , placeholder: "latitude", value: current_user.latitude%> </div>
+  <div> <%= f.text_field :longitude , placeholder: "longitude", value: current_user.longitude%> </div>
+  <div> <%= f.text_field :owner_id , placeholder: "owner_id", value: current_user.id%> </div>
+  <div> <%#= f.text_field :type , placeholder: "type", value: "OwnedTasks"%> </div>
+  <div> <%= f.text_field :status , placeholder: "status", value: "Open"%> </div>
+  <div> <%= f.text_field :title , placeholder: "title"%> </div>
+  <div> <%= f.text_field :title_icon, placeholder: "icon"%> </div>
+  <div> <%= f.text_area :desc , placeholder: "description"%> </div>
+  <div> <%= f.date_field :duration , placeholder: "duration"%> </div>
+  <div> <%= f.file_field :images , placeholder: "images"%> </div>
+  <div> <%= f.text_field :points , placeholder: "points" %> </div>
+  <div> <%= f.text_field :assignee_id , placeholder: "assignee_id"%> </div>
+
+  <div><%= f.submit 'Create' %></div>
+<% end %>
