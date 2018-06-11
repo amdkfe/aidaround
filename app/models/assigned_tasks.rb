@@ -1,0 +1,3 @@
+class AssignedTasks < Task
+
+end

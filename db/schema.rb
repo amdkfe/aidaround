@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609180653) do
+ActiveRecord::Schema.define(version: 20180611142306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.string "title_icon"
+    t.text "desc"
+    t.integer "points"
+    t.string "images"
+    t.date "duration"
+    t.string "status"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "type"
+    t.integer "owner_id"
+    t.integer "assignee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +47,8 @@ ActiveRecord::Schema.define(version: 20180609180653) do
     t.inet "last_sign_in_ip"
     t.string "type"
     t.string "avatar"
+    t.integer "owned_tasks_id"
+    t.integer "assigned_tasks_id"
     t.string "username", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
