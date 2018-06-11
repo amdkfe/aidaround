@@ -1,0 +1,10 @@
+
+<div>
+  <% task = current_user.owned_tasks %>
+  <% task.each do |i| %>
+    <%= i.title %>
+    <%= i.owner_id%>
+    <%#= i.owner_id%>
+    <br/>
+  <% end%>
+</div>
