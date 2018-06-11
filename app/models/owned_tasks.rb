@@ -1,0 +1,3 @@
+class OwnedTasks < Task
+
+end

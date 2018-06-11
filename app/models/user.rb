@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
-  has_many :tasks
+  # has_many :tasks
+  has_many :owned_tasks, class_name: "Task", foreign_key: "owner_id"
+  has_many :assigned_tasks, class_name: "Task", foreign_key: "assignee_id"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
