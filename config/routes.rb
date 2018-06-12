@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'static#index'
   resources :users do
       member do
-        get 'created_tasks'
+        get 'created_tasks' , 'assigned_tasks'
       end
   end
 end
