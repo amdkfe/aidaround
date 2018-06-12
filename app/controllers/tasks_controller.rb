@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
   def index
+    @task = Task.all
   end
 
   def new
@@ -9,6 +10,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create!(task_params)
+    @user = User.all
     if @task.save
       flash[:success] = "You have successfully created a new task!"
       redirect_to @task
