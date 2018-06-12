@@ -2,7 +2,7 @@
   <%= link_to 'Create Tasks', {controller: "tasks", action: "new", id: current_user.id} %>
 </div>
 <div>
-  <%= link_to 'Show created tasks', user_task_path(params[:id]) %>
+  <%= link_to 'Show created tasks', created_tasks_user_path(params[:id]) %>
 
 </div>
 

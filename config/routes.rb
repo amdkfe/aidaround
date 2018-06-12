@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :sign_up, :controller => :after_signup
   root to: 'static#index'
   resources :users do
-    resources :tasks 
+      member do
+        get 'created_tasks'
+      end
   end
 end

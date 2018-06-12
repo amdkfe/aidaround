@@ -1,0 +1,15 @@
+
+<div>
+     <% @user = User.find(params[:id])%>
+
+    <%@task = @user.owned_tasks%>
+ 
+ <% @task.each do |i| %>
+    <%= i.title %>
+    <%= i.owner_id%>
+    <br/>
+  <% end%>
+
+
+
+</div>

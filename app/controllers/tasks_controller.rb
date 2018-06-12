@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     @user = User.all
     if @task.save
       flash[:success] = "You have successfully created a new task!"
-      redirect_to @task
+      redirect_to controller: 'users', action: 'created_tasks' 
     else
       render action: 'new' 
     end
@@ -37,7 +37,14 @@ class TasksController < ApplicationController
   end
 
   def preview
-    
+        # # @user = User.find(params[3])
+    # id = current_user.id
+    @user = User.find(params[:id])
+    # @task = Task.find(params[:id])
+    # search for all users tasks with a task id of 7 
+    # @task = @user.user_id.find(params[:id])
+    @task = Task.find(params[:id])
+    # render action: 'show', controller: 'user'
   end
 end
 
