@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
 
   def index
-    @task = Task.all
+    @user = User.find(params[:id])
+    @task = @user.owned_tasks.find(params[:id])
   end
 
   def new
@@ -10,10 +11,9 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.create!(task_params)
-    @user = User.all
     if @task.save
       flash[:success] = "You have successfully created a new task!"
-      redirect_to @task
+      redirect_to created_tasks_user_path(current_user) 
     else
       render action: 'new' 
     end
@@ -25,9 +25,12 @@ class TasksController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[3])
-    id = current_user.id
-    @user = OwnedUser.last
+    @user = User.find(params[:id])
+    @task = @user.owned_tasks
+  end
+
+  def preview
+    @user = User.find(params[:id])
     @task = Task.find(params[:id])
   end
 end
