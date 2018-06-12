@@ -1,8 +1,10 @@
 <div>
   <%= link_to 'Create Tasks', {controller: "tasks", action: "new", id: current_user.id} %>
 </div>
+<div>
+  <%= link_to 'Show created tasks', user_task_path(params[:id]) %>
 
-
+</div>
 
 <div>
   <%= image_tag @user.avatar, width: '20%' %>

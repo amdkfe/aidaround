@@ -1,20 +1,15 @@
 
 <div>
-  <% task = current_user.owned_tasks %>
-  <% task.each do |i| %>
-    <div> <%= i.status %> </div>
-    <div> <%= i.title %> </div>
-    <div> <%= i.desc %> </div>
-    <div>valid until:<%= i.duration %> </div>
-    <div>points:<%= i.points %> </div>
-    <div> <%= i.images %> </div>
-   
-    <div> <% @creator = User.find_by id: i.owner_id %>
-    Created by:<%= @creator.username %></div> 
-    <div> <% @assignee = User.find_by id: i.assignee_id %> 
-    Assigned to: <%= @assignee.username %> </div>
+     <% @user = User.find(params[:id])%>
+
+    <%@task = @user.owned_tasks%>
+ 
+ <% @task.each do |i| %>
+    <%= i.title %>
+    <%= i.owner_id%>
+    <br/>
   <% end%>
+
+
+
 </div>
-
-
-

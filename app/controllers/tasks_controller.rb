@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
 
   def index
-    @task = Task.all
+    @user = User.find(params[:id])
+    @task = @user.owned_tasks.find(params[:id])
   end
 
   def new
@@ -25,10 +26,18 @@ class TasksController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[3])
-    id = current_user.id
-    @user = OwnedUser.last
-    @task = Task.find(params[:id])
+    # # @user = User.find(params[3])
+    # id = current_user.id
+    @user = User.find(params[:id])
+    # @task = Task.find(params[:id])
+    # search for all users tasks with a task id of 7 
+    # @task = @user.user_id.find(params[:id])
+    @task = @user.owned_tasks
+    # render action: 'show', controller: 'user'
+  end
+
+  def preview
+    
   end
 end
 
