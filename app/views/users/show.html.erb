@@ -1,20 +1,23 @@
-<div>
+<div> 
   <%= link_to 'Create Tasks', {controller: "tasks", action: "new", id: current_user.id} %>
 </div>
+
 <div>
   <%= link_to 'Show created tasks', created_tasks_user_path(params[:id]) %>
-
 </div>
 
 <div>
   <%= image_tag @user.avatar, width: '20%' %>
 </div>
+
 <div>
   Username: <%= @user.username %>
 </div>
+
 <div>
   Email: <%= @user.email %>
 </div>
+
 <div>
   Address: <%= @user.postcode %>
 </div>
