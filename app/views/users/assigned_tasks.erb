@@ -8,6 +8,7 @@
  
   <div class = "taskList">
     <% @task.each do |i| %>
+    <div> <%= time_ago_in_words(i.created_at).gsub('about','') +" ago" %> </div>
     <div> <%= i.status %> </div>
     <div> <%= i.title.capitalize %> </div>
     <div> <%= i.desc.capitalize %> </div>

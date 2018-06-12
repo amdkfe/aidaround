@@ -5,6 +5,7 @@
 </div>
 
 <div class = "taskShow">
+  <div> <%= time_ago_in_words(@task.created_at).gsub('about','') +" ago" %> </div>
   <div> <%= @task.status %> </div>
   <div> <%= @task.title.capitalize %> </div>
   <div> <%= @task.desc.capitalize %> </div>
