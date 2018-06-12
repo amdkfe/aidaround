@@ -1,3 +1,8 @@
 all tasks
 
-<%= @task.inspect %>
+<% @task.each do |i| %>
+    <%= i.title %>
+    <%= i.owner_id.username%>
+    <%#= i.owner_id%>
+    <br/>
+  <% end%>
