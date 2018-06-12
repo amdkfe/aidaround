@@ -333,11 +333,11 @@
 # #   }])
 # # end
 
-# ahmad = OwnerUser.create!(id:1, username: 'ahmad',email: 'a@a',password: "aaaaaa", password_confirmation: "aaaaaa",postcode: 2334,latitude: 2,longitude: 21,type: "OwnerUser", points: 23)
-# mahdi =AssigneeUser.create!(id:2, username: 'mahdi',email: 'b@b',password: "aaaaaa", password_confirmation: "aaaaaa",postcode: 4534,latitude: 4,longitude: 22,type: "AssigneeUser", points: 13)
+# ahmad = Owner.create!(id:1, username: 'ahmad',email: 'a@a',password: "aaaaaa", password_confirmation: "aaaaaa",postcode: 2334,latitude: 2,longitude: 21, points: 23)
+# mahdi =Assignee.create!(id:2, username: 'mahdi',email: 'b@b',password: "aaaaaa", password_confirmation: "aaaaaa",postcode: 4534,latitude: 4,longitude: 22, points: 13)
 
 
-# Task.create!(id: 1, title: "wash my car", points: 2, duration: Date.today, status: "open", latitude:11, longitude:12, assignee_user: ahmad,owner:mahdi)
+# task a = OwnedTask.create!(id: 1, title: "wash my car", points: 2, duration: Date.today, status: "open", latitude:11, longitude:12, assignee_user: ahmad,owner:mahdi)
 
 
 # # tasks

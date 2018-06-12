@@ -1,9 +1,13 @@
 <div> 
-  <%= link_to 'Create Tasks', {controller: "tasks", action: "new", id: current_user.id} %>
+  <%= link_to 'Post a task', {controller: "tasks", action: "new", id: current_user.id} %>
 </div>
 
 <div>
-  <%= link_to 'Show created tasks', created_tasks_user_path(params[:id]) %>
+  <%= link_to 'Created tasks', created_tasks_user_path(params[:id]) %> 
+</div>
+
+<div>
+  <%= link_to 'Assigned tasks', assigned_tasks_user_path(params[:id]) %>
 </div>
 
 <div>

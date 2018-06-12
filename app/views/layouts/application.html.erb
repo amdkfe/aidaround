@@ -18,15 +18,23 @@
   </head>
 
   <body>
+    <!-- navbar elements -->
     <div class="navbar">
-    <ul class="logo">
-      <%= render 'navbar/logo' %>
-    </ul>
-
-    <ul class="deviselink">
-      <%= render 'navbar/login_join' %>
-    </ul>
-</div>
+      <ul class="logo">
+        <%= render 'navbar/logo' %>
+      </ul>
+      <ul class="deviselink">
+       <%= render 'navbar/login_join' %>
+      </ul>
+    </div>
+ 
+    <!--  alert box -->
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+            <%= value %>
+      </div>
+    <% end %>
+ 
 
     <%= yield %>
 

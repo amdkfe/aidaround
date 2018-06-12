@@ -1,10 +1,11 @@
-<!-- list of CREATED tasks by a specific user -->
+<!-- list of ASSIGNED tasks by a specific user -->
 <!-- called from :controller => user, :action => created_tasks -->
 
-<%= "#{@user.username.capitalize}'s created tasks" %> 
+<%= "#{@user.username.capitalize}'s assigned tasks" %> 
 
 <div>
-  <%@task = @user.owned_tasks%>
+  <%@task = @user.assigned_tasks%>
+ 
   <div class = "taskList">
     <% @task.each do |i| %>
     <div> <%= i.status %> </div>
@@ -12,8 +13,8 @@
     <div> <%= i.desc.capitalize %> </div>
     <div> valid until: <%= i.duration %> </div>
     <div> points: <%= i.points %> </div>
-    <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div> 
-    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %> </div>
+    <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
+    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %></div>
     
     <div> <%= link_to 'Show created tasks', task_path(@tasklist.id) %></div>
     <% end%>
