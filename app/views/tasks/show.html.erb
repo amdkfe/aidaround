@@ -8,8 +8,8 @@
   <div> <%= @task.status %> </div>
   <div> <%= @task.title.capitalize %> </div>
   <div> <%= @task.desc.capitalize %> </div>
-  <div> valid until: <%= @task.duration %> </div>
-  <div> points: <%= @task.points %> </div>
+  <div> Valid until: <%= @task.duration %> </div>
+  <div> Points: <%= @task.points %> </div>
   <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
   <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %></div>
   <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
