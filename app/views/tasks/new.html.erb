@@ -12,7 +12,7 @@
   <div> <%= f.date_field :duration , placeholder: "duration"%> </div>
   <div> <%= f.file_field :images , placeholder: "images", type:"hidden"%> </div>
   <div> <%= f.text_field :points , placeholder: "points" %> </div>
-  <div> <%= f.text_field :assignee_id , placeholder: "assignee_id"%> </div>
+  <div> <%= f.text_field :assignee_id , placeholder: "assignee_id", value: nil, type:"hidden" %> </div>
 
   <div><%= f.submit 'Create' %></div>
 <% end %>

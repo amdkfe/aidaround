@@ -7,7 +7,7 @@
   <%@task = @user.assigned_tasks%>
  
   <div class = "taskList">
-    <% @task.each do |i| %>
+    <% @task.newest.each do |i| %>
     <div> <%= time_ago_in_words(i.created_at).gsub('about','') +" ago" %> </div>
     <div> <%= i.status %> </div>
     <div> <%= i.title.capitalize %> </div>
