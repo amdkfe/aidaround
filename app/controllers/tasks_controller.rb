@@ -19,19 +19,23 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    @task = Task.find(params[:id])
+    @creator = User.find_by id: @task.owner_id
+    @assignee = User.find_by id: @task.assignee_id
+    # @task = @user.owned_tasks
+  end
+
   private
   def task_params
     params.require(:task).permit(:title, :title_icon, :desc, :description, :duration, :images, :address, :latitude, :longitude, :owner_id, :status, :type, :assignee_id, :points, :user_id)
   end
 
-  def show
-    @user = User.find(params[:id])
-    @task = @user.owned_tasks
-  end
 
   def preview
     @user = User.find(params[:id])
-    @task = Task.find(params[:id])
+    @task = Task.find_by(task_id: params[:task_id])
+    # @post = Post.find_by(slug: params[:slug])
   end
 end
 

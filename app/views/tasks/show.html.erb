@@ -1,0 +1,17 @@
+<div>
+  <%= image_tag @creator.avatar, width: '20%' %>
+</div>
+
+<div class = "taskShow">
+
+  <div> <%= @task.status %> </div>
+  <div> <%= @task.title %> </div>
+  <div> <%= @task.desc %> </div>
+  <div> valid until: <%= @task.duration %> </div>
+  <div> points: <%= @task.points %> </div>
+  <div> <%= @task.images %> </div>
+  <div> Created by: <%= @creator.username %></div> 
+  <div> Assigned to: <%= @assignee.username %> </div>
+  <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
+
+</div>
