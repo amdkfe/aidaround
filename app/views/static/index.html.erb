@@ -1,9 +1,47 @@
 <%= video_tag(
   'aidaround.mp4',
-  id: 'background',
+  id: 'video',
   autoplay: true,
   loop: true,
   muted: true,
   poster: 'aidaround.jpg')
 %>
 
+<%#= render "search_bar" %>
+
+<%= tag.div nil, id: 'homemap'%>
+
+<div>
+  <% @assignees.each do |i| %>
+    <div><%=i.username.capitalize %> | <%=i.points %> poiints </div>
+
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+<script>
+  var map = new GMaps({
+    div: '#homemap',
+   lat: <% @assignees.each do |i| %>
+         <%=i.latitude %>
+         <% end %>,
+    lng: <% @assignees.each do |i| %>
+         <%=i.longitude %>
+         <% end %>,
+  });
+  map.addMarker({
+    lat: <% @assignees.each do |i| %>
+         <%=i.latitude %>
+         <% end %>,
+    lng: <% @assignees.each do |i| %>
+         <%=i.longitude %>
+         <% end %>,
+    
+})
+</script>

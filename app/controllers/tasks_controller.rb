@@ -23,7 +23,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @creator = User.find_by id: @task.owner_id
     @assignee = User.find_by id: @task.assignee_id
-    
+
   end
 
   def update
@@ -33,6 +33,9 @@ class TasksController < ApplicationController
     # @task.assignee_id = current_user.id
     @task.update_attribute(:assignee_id, i)
     @assignee = User.find_by id: @task.assignee_id
+
+    @current_user.update_attribute(:type, "Assignee") 
+
     redirect_to task_path(@tasklist.id)
 
   #   respond_to do |format|
