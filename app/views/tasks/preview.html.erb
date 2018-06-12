@@ -1,6 +1,6 @@
 preview
 <div>    
- <%@task = Task.find(params[:id])%>
+ <%=  @task = Task.find_by(id: params[:task_id])%>
   <%= @task.title %>
   <%= @task.owner_id%>
   <br/>
