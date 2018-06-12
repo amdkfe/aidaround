@@ -6,16 +6,23 @@
 <div>
   <%@task = @user.owned_tasks%>
   <div class = "taskList">
-    <% @task.each do |i| %>
+    <br/>
+    <% @task.newest.each do |i| %>
+    <div> <%= time_ago_in_words(i.created_at).gsub('about','') +" ago" %> </div>
     <div> <%= i.status %> </div>
     <div> <%= i.title.capitalize %> </div>
     <div> <%= i.desc.capitalize %> </div>
-    <div> valid until: <%= i.duration %> </div>
-    <div> points: <%= i.points %> </div>
+    <div> Valid until: <%= i.duration %> </div>
+    <div> Points: <%= i.points %> </div>
     <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div> 
-    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %> </div>
     
-    <div> <%= link_to 'Show created tasks', task_path(@tasklist.id) %></div>
+    <% if !@assignee = "" %>
+        <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %> </div>
+      <% else %>
+        <div> <%= link_to "Show created tasks", task_path(@tasklist.id) %></div>
+    <%end %>
+
+    <br/>
     <% end%>
   </div>
 </div>
