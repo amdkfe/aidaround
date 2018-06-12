@@ -35,12 +35,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :first_name
       t.string :last_name
       t.string :type
-      t.text :avatar
+      t.text :avatar,  optional: true
       t.integer :owned_tasks_id
       t.integer :assigned_tasks_id
-      t.string :username, null: false, unique: true
+      t.string :username, null: false,        unique: true
 
-      t.timestamps null: false
+      t.timestamps     null: false
     end
 
     add_index :users, :email,                unique: true

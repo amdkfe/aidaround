@@ -1,6 +1,10 @@
 <% if user_signed_in? %>
 
   <li>
+     <%= link_to 'Post a task', {controller: "tasks", action: "new", id: current_user.id} %>
+  </li>
+
+  <li>
     <%= link_to("#{current_user.username.capitalize}\'s Profile", {controller: "users", action: "show", id: current_user.id}) %>
   </li>
   <li>

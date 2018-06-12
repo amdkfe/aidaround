@@ -15,7 +15,6 @@
   <div> Valid until: <%= @task.duration %> </div>
   <div> Points: <%= @task.points %> </div>
   <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
-
   <% if @assignee.nil? %>
     <div> <%= link_to 'Accept it!', task_path(@task.id), method: :patch %></div>
   <% else %>

@@ -1,7 +1,3 @@
-<div> 
-  <%= link_to 'Post a task', {controller: "tasks", action: "new", id: current_user.id} %>
-</div>
-
 <div>
   <%= link_to 'Created tasks', created_tasks_user_path(params[:id]) %> 
 </div>
