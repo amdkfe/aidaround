@@ -10,6 +10,9 @@ class UsersController < ApplicationController
 
    def created_tasks
     @user = User.find(params[:id])
-    @task = @user.owned_tasks
+    @task = Task.find_by(owner_id: params[:id])
+    @creator = User.find_by id: @task.owner_id
+    @assignee = User.find_by id: @task.assignee_id
+    @tasklist = Task.find_by id: @task.id 
   end
 end

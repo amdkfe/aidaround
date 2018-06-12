@@ -1,20 +1,22 @@
+<!-- template to show the list of the tasks created by the specific user -->
+<!-- called from :controller => user, :action => created_tasks -->
+
 <%= "#{@user.username.capitalize}'s created tasks" %> 
+
 <div>
   <%@task = @user.owned_tasks%>
   <div class = "taskList">
     <% @task.each do |i| %>
     <div> <%= i.status %> </div>
-    <div> <%= i.title %> </div>
-    <div> <%= i.desc %> </div>
-    <div>valid until: <%= i.duration %> </div>
-    <div>points: <%= i.points %> </div>
+    <div> <%= i.title.capitalize %> </div>
+    <div> <%= i.desc.capitalize %> </div>
+    <div> valid until: <%= i.duration %> </div>
+    <div> points: <%= i.points %> </div>
     <div> <%= i.images %> </div>
-    <div> <% @creator = User.find_by id: i.owner_id %>
-    Created by: <%= @creator.username %></div> 
-    <div> <% @assignee = User.find_by id: i.assignee_id %> 
-    Assigned to: <%= @assignee.username %> </div>
-    <% @task = Task.find_by id: i.id %>
-    <div> <%= link_to 'Show created tasks', task_path(@task.id) %></div>
+    <div> Created by: <%= @creator.username.capitalize %></div> 
+    <div> Assigned to: <%= @assignee.username.capitalize %> </div>
+    
+    <div> <%= link_to 'Show created tasks', task_path(@tasklist.id) %></div>
     <% end%>
   </div>
 </div>

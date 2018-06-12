@@ -1,17 +1,17 @@
+<!-- template to show the indevidual task -->
+<!-- called from :controller => task, :action => show -->
 <div>
   <%= image_tag @creator.avatar, width: '20%' %>
 </div>
 
 <div class = "taskShow">
-
   <div> <%= @task.status %> </div>
-  <div> <%= @task.title %> </div>
-  <div> <%= @task.desc %> </div>
+  <div> <%= @task.title.capitalize %> </div>
+  <div> <%= @task.desc.capitalize %> </div>
   <div> valid until: <%= @task.duration %> </div>
   <div> points: <%= @task.points %> </div>
   <div> <%= @task.images %> </div>
-  <div> Created by: <%= @creator.username %></div> 
-  <div> Assigned to: <%= @assignee.username %> </div>
+  <div> Created by: <%= @creator.username.capitalize %></div> 
+  <div> Assigned to: <%= @assignee.username.capitalize %> </div>
   <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
-
 </div>
