@@ -13,7 +13,7 @@
   <%#= f.text_field :type , placeholder: "type", value: "OwnedTasks"%>
   <div> <%= f.text_field :status , placeholder: "status", value: "Open", type:"hidden"%> </div>
   <div> <%= f.text_field :title , placeholder: "title"%> </div>
-  <div> <%= f.text_field :title_icon, placeholder: "icon", type:"hidden"%> </div>
+  <div> <%= f.text_field :title_icon, placeholder: "icon", value: current_user.avatar, type:"hidden"%> </div>
   <div> <%= f.text_area :desc , placeholder: "description"%> </div>
   <div> <%= f.date_field :duration , placeholder: "duration"%> </div>
   <div> <%= f.file_field :images , placeholder: "images", type:"hidden"%> </div>

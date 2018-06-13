@@ -2,7 +2,7 @@ class CreateTasks < ActiveRecord::Migration[5.1]
   def change
     create_table :tasks do |t|
       t.string :title   
-      t.string :title_icon, :limit => 30
+      t.string :title_icon, :default => "https://cdn.onlinewebfonts.com/svg/img_167476.png"
       t.text :desc
       t.integer :points
       t.string :images

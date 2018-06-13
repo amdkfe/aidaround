@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20180613120919) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title"
-    t.string "title_icon", limit: 30
+    t.string "title_icon", default: "Open"
     t.text "desc"
     t.integer "points"
     t.string "images"
     t.date "duration"
-    t.string "status", default: "Open"
+    t.string "status", default: "https://cdn.onlinewebfonts.com/svg/img_167476.png"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
