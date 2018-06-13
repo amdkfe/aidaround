@@ -15,6 +15,12 @@ class Task < ApplicationRecord
   scope :search, lambda {|query| where(["latitude LIKE ?", "%#{query}%"])}
 
 
+  # geocoded_by :address
+
+  # def address
+  #   [street, city, state, country, postcode, latitude, longitude].compact.join(', ')
+  # end
+
   private
 
   def set_tasks_data
