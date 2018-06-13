@@ -1,13 +1,19 @@
 <%= form_for @task do |f| %>
   <div> <%= f.text_field :user_id , placeholder: "user_id", value: current_user.id, type:"hidden"%> </div>
   <div> <%= f.text_field :address , placeholder: "address", value: current_user.postcode, type:"hidden"%> </div>
+  <div> <%= f.text_field :postcode , placeholder: "postcode", value: current_user.postcode, type:"hidden"%> </div>
+  <div> <%= f.text_field :street , placeholder: "street", value: current_user.street, type:"hidden"%> </div>
+  <div> <%= f.text_field :city , placeholder: "city", value: current_user.city, type:"hidden"%> </div>
+  <div> <%= f.text_field :state , placeholder: "state", value: current_user.state, type:"hidden"%> </div>
+  <div> <%= f.text_field :country , placeholder: "country", value: current_user.country, type:"hidden"%> </div>
   <div> <%= f.text_field :latitude , placeholder: "latitude", value: current_user.latitude, type:"hidden"%> </div>
   <div> <%= f.text_field :longitude , placeholder: "longitude", value: current_user.longitude, type:"hidden"%> </div>
   <div> <%= f.text_field :owner_id , placeholder: "owner_id", value: current_user.id, type:"hidden"%> </div>
+  
   <%#= f.text_field :type , placeholder: "type", value: "OwnedTasks"%>
   <div> <%= f.text_field :status , placeholder: "status", value: "Open", type:"hidden"%> </div>
   <div> <%= f.text_field :title , placeholder: "title"%> </div>
-  <div> <%= f.text_field :title_icon, placeholder: "icon", type:"hidden"%> </div>
+  <div> <%= f.text_field :title_icon, placeholder: "icon", value: current_user.avatar, type:"hidden"%> </div>
   <div> <%= f.text_area :desc , placeholder: "description"%> </div>
   <div> <%= f.date_field :duration , placeholder: "duration"%> </div>
   <div> <%= f.file_field :images , placeholder: "images", type:"hidden"%> </div>

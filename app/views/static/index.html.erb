@@ -1,3 +1,4 @@
+
 <%= video_tag(
   'aidaround.mp4',
   id: 'video',
@@ -7,12 +8,14 @@
   poster: 'aidaround.jpg')
 %>
 
+
 <%#= render "search_bar" %>
 
-<%= tag.div nil, id: 'homemap', data: { markers: @task.to_json(methods: [:address]) }%>
 
+<!-- getting the gmaps address method on tasks and convert them to json and store it in markers -->
+<%= tag.div nil, id: 'homemap', data: { tasks: @tasks.to_json } %>
 
-<!--  -->
+<!-- tasks -->
 <div class="row">
   <div class="col">
     <h1>Latest Tasks</h1>
@@ -30,7 +33,8 @@
   </div>
 </div>
 
-<!--  -->
+
+<!-- assignees -->
 
 <div class="row">
  <div class="col">
@@ -49,35 +53,64 @@
 
 
 
-
-
-
-
-
 <script>
+
   document.addEventListener("turbolinks:load", function() {
 
-  var map = new GMaps({
-    div: '#homemap',
-    lat: 38.5816,
-    lng: -121.4944
+    //sets a default lat long on the homepag map
+    var map = new GMaps({
+      div: '#homemap',
+      lat: 51.5074,
+      lng: 0.1278,
+      zoom: 10,
+    });
+    //add the map var to the windows DOM
+    window.map = map;
+
+    //get the homemap and parse the existing markers, store and add the to windows object//  
+    var tasks = JSON.parse(document.querySelector("#homemap").dataset.tasks);
+    window.tasks = tasks;
+
+    // var bounds = new google.maps.LatLngBounds();
+
+
+ 
+
+
+
+
+    //adding markers to the map
+    tasks.forEach(function(task) {
+        var content = `
+        <a href='/tasks/${task.id} style="text-decoration:none; " '>
+        <table >
+          <tr>
+            <td>
+              <img src="${task.title_icon}" width="85" style="margin-right:10px">
+            </td>
+            <td></td>
+            <td>
+              <h6><a style="color:#ec634a" href='/tasks/${task.id}'>${task.title}</a></h6>
+              <p style="color:#212529">${task.points} points </p>
+              <p style="color:#6f6f6f">${task.address}</a></p>
+            </td>
+          </tr>
+        </table>
+          </a>
+        `
+;
+        map.addMarker({
+          lat: task.latitude,
+          lng: task.longitude, 
+          title: task.title,
+          infoWindow: { 
+            content: content
+          }
+        });
+
+        // bounds.extend(marker.position);
+     
+    });
+    // map.fitBounds(bounds);
   });
-});
-  // var map = new GMaps({
-  //   div: '#homemap',
-  //  lat: <% @assignees.each do |i| %>
-  //        <%=i.latitude %>
-  //        <% end %>,
-  //   lng: <% @assignees.each do |i| %>
-  //        <%=i.longitude %>
-  //        <% end %>,
-  // });
-  // map.addMarker({
-  //   lat: <% @assignees.each do |i| %>
-  //        <%=i.latitude %>
-  //        <% end %>,
-  //   lng: <% @assignees.each do |i| %>
-  //        <%=i.longitude %>
-  //        <% end %>,  
-  // })
 </script>
