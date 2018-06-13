@@ -9,13 +9,42 @@
 
 <%#= render "search_bar" %>
 
-<%= tag.div nil, id: 'homemap'%>
+<%= tag.div nil, id: 'homemap', data: { markers: @task.to_json(methods: [:address]) }%>
 
-<div>
-  <% @assignees.each do |i| %>
-    <div><%=i.username.capitalize %> | <%=i.points %> poiints </div>
 
+<!--  -->
+<div class="row">
+  <div class="col">
+    <h1>Latest Tasks</h1>
+
+    <% @tasks.newest.each do |task| %>
+      <div>
+        <h5><%= task.points %> points | <%= link_to task.title, task %></h5>
+        <div><%= task.address %> <%= task.desc %>   </div>
+        <div>Creator: <%=task.owner_id %> <%= time_ago_in_words(task.created_at).gsub('about','') +" ago" %></div>
+      </div>
+      <hr />
+    <% end %>
+
+    <%#= paginate @tasks %>
+  </div>
+</div>
+
+<!--  -->
+
+<div class="row">
+ <div class="col">
+  <h1>Top Assignees</h1>
+
+  <!-- need to add scope for highest points -->
+  <% @assignees.each do |assignee| %>
+    <div>
+      <h5><%=link_to assignee.username.capitalize, user_path(assignee) %> | <%=assignee.points %> points </h5>
+    </div>
+    <hr />
   <% end %>
+
+  </div>
 </div>
 
 
@@ -26,22 +55,29 @@
 
 
 <script>
+  document.addEventListener("turbolinks:load", function() {
+
   var map = new GMaps({
     div: '#homemap',
-   lat: <% @assignees.each do |i| %>
-         <%=i.latitude %>
-         <% end %>,
-    lng: <% @assignees.each do |i| %>
-         <%=i.longitude %>
-         <% end %>,
+    lat: 38.5816,
+    lng: -121.4944
   });
-  map.addMarker({
-    lat: <% @assignees.each do |i| %>
-         <%=i.latitude %>
-         <% end %>,
-    lng: <% @assignees.each do |i| %>
-         <%=i.longitude %>
-         <% end %>,
-    
-})
+});
+  // var map = new GMaps({
+  //   div: '#homemap',
+  //  lat: <% @assignees.each do |i| %>
+  //        <%=i.latitude %>
+  //        <% end %>,
+  //   lng: <% @assignees.each do |i| %>
+  //        <%=i.longitude %>
+  //        <% end %>,
+  // });
+  // map.addMarker({
+  //   lat: <% @assignees.each do |i| %>
+  //        <%=i.latitude %>
+  //        <% end %>,
+  //   lng: <% @assignees.each do |i| %>
+  //        <%=i.longitude %>
+  //        <% end %>,  
+  // })
 </script>
