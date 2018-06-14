@@ -20,19 +20,18 @@
     <h1>Latest Tasks</h1>
 
     <% @tasks.newest.each do |task| %>
-      <div class="row">
-         <div class="col tasks">
-        <h5 style="color:#83878c"><%= task.points %> points </h5>
-         </div>
-         <div class="col">
+        <!-- <div class="row">
+         <div class="col tasks"> -->
+          <!-- <h5 style="color:#83878c"><%#= task.points %> points </h5> -->
+          <!-- <div class="col"> -->
           <h5><%= link_to task.title, task %></h5>
           <%= task.address %> <%= task.desc %>  
           <p style="color:#83878c"><%= time_ago_in_words(task.created_at).gsub('about','') +" ago" %></p>
-        </div>
-        </div>
+          <!-- </div>
+        </div> -->
       <hr />
     <% end %>
-
+    </div>
     <%#= paginate @tasks %>
   </div>
 </div>
@@ -50,7 +49,7 @@
        <%= image_tag assignee.avatar %>
     </div>
     <div>
-      <h5><%=link_to assignee.username.capitalize, user_path(assignee) %> | <%=assignee.points %> points </h5>
+      <!-- <h5><#%=link_to assignee.username.capitalize, user_path(assignee) %> | <#%=assignee.points %> points </h5> -->
     </div>
     <hr />
   <% end %>
@@ -88,7 +87,7 @@
                           </td>
                           <td>
                             <h6><a style="color:#1783b8" href='/tasks/${task.id}'>${task.title}</a></h6>
-                            <p style="color:#ec634a">${task.points} points </p>
+                             
                             <p style="color:#6f6f6f">${task.address}</a></p>
                           </td>
                         </tr>
@@ -155,7 +154,6 @@
                           </td>
                           <td>
                             <h6><a style="color:#1783b8" href='/tasks/${task.id}'>${task.title}</a></h6>
-                            <p style="color:#ec634a">${task.points} points </p>
                             <p style="color:#6f6f6f">${task.address}</a></p>
                           </td>
                         </tr>
