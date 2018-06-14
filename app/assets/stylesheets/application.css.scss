@@ -1,18 +1,15 @@
-//= require_tree .
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "tasks.css.scss";
 
 // $navbar-default-bg: #312312;
 // $light-orange: #ff8c00;
 // $navbar-default-color: $light-orange;
 
-@import "bootstrap";
 
-// Fixes bootstrap nav-brand container overlap
-@include media-breakpoint-down(xs) {
-  .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
+
+
 
 #map {
   height: 400px;

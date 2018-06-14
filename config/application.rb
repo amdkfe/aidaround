@@ -9,6 +9,7 @@ require 'carrierwave'
 require 'carrierwave/orm/activerecord'
 require 'dotenv-rails'
 
+
 module Aidaround
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
