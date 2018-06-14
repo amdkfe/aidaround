@@ -13,8 +13,8 @@
   <%= link_to '', destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out btn btn-outline-secondary" %>
 
 <% else %>
-  
-  <%= link_to '   Join   ', new_user_registration_path, class: "btn btn-success" %>
+  <%= link_to '', root_path, class: "glyphicon glyphicon-home btn btn-outline-secondary"  %>
+  <%= link_to 'Join', new_user_registration_path, class: "btn btn-success" %>
 
   <%= link_to 'Sign In', new_user_session_path, class: "btn btn-outline-secondary"  %>
 

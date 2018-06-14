@@ -2,27 +2,45 @@
 <!-- called from :controller => task, :action => show -->
 <%= tag.div nil, id: 'taskmap'%>
 
-<div>
-  <%= image_tag @creator.avatar, width: '20%' %>
-</div>
- 
-<div class = "taskShow">
-  <div> <%= time_ago_in_words(@task.created_at).gsub('about','') +" ago" %> </div>
-  <div> <%= @task.status %> </div>
-  <div> <%= @task.title.capitalize %> </div>
-  <div> <%= @creator.address || @creator.postcode%> </div>
-  <div> <%= @task.desc.capitalize %> </div>
-  <div> Valid until: <%= @task.duration %> </div>
-  <div> Points: <%= @task.points %> </div>
-  <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
-  <% if @assignee.nil? %>
-    <div> <%= link_to 'Accept it!', task_path(@task.id), method: :patch %></div>
-  <% else %>
-    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@task.assignee.id) %> </div>
-  <%end %>
+<div class="row taskShow">
+    <div class="col-md-12">
+      <div class="jumbotron">
 
-  <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
-</div>
+        <h5>
+          Valid until: <%= @task.duration %>
+        </h5>
+        <br/>
+        <hr/>
+        <h3> <b>
+          <%= @task.title.capitalize %></b>
+        </h3>
+        <h5>
+          <%= @creator.address || @creator.postcode%>
+        </h5>
+        <br/>
+        <h5>
+          <%= @task.desc.capitalize %>
+        </h5>
+
+        <br />
+        <div>
+          <div><%= image_tag @creator.avatar, width: '10%', class: 'img-rounded'%></div>
+          <div><h5>Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
+          <div> <%= time_ago_in_words(@task.created_at).gsub('about','') +" ago" %> </h5></div>
+        </div>
+         <hr/>
+         <p>
+          <% if @assignee.nil? %>
+    <div> <%= link_to 'Accept it!', task_path(@task.id), method: :patch , class: "btn btn-primary btn-large" %></div>
+  <% else %>
+    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@task.assignee.id),class: "btn btn-primary btn-large" %> </div>
+  <%end %>
+  <br/>
+      <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
+      </div>
+    </div>
+  </div>
+
 
 <script>
   var map = new GMaps({

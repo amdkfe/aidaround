@@ -29,6 +29,9 @@ a:hover {
   text-decoration: none;
   color: #1b1b1b;
 }
+a:active {
+  text-decoration: none;
+}
 
 .word_art{
     border: aliceblue, solid, 11px;
@@ -74,6 +77,7 @@ a:hover {
 #taskmap {
   height: 300px;
   /*width: 100%;*/
+  overflow: inherit!important;
 }
 #homemap {
   height: 600px;
@@ -139,6 +143,8 @@ div.user_list_bg img{
   font-size: 18px;
   line-height: 1.3333333;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+outline: none;
+border: none;
 }
 
 .word_art3,.word_art3:hover{
@@ -217,4 +223,12 @@ div.user_list_bg img{
     position: absolute;
     right: 20px;
     box-shadow: 0 1px 0px 0px rgba(255, 255, 255, 0), 0 0 38px rgba(255, 255, 255, 0.62);
+}
+
+
+.taskShow .jumbotron{
+  margin: auto;
+    background-color: white;
+    width: 70%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
 }
