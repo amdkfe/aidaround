@@ -1,0 +1,23 @@
+
+
+<div id="navbar">
+<% if user_signed_in? %>
+     <%= link_to '', {controller: "tasks", action: "new", id: current_user.id}, class: "glyphicon glyphicon-plus btn btn-warning" %>
+
+    <%= link_to ("#{current_user.username.capitalize}"), ({controller: "users", action: "show", id: current_user.id}), class: "glyphicon glyphicon-user btn-outline-secondary" %>
+  
+    <%= link_to '', (edit_user_registration_path), class: "glyphicon glyphicon-cog btn btn-outline-secondary" %>
+
+
+<%= link_to '', root_path, class: "glyphicon glyphicon-home btn btn-outline-secondary"  %>
+  <%= link_to '', destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out btn btn-outline-secondary" %>
+
+<% else %>
+  
+  <%= link_to '   Join   ', new_user_registration_path, class: "btn btn-success" %>
+
+  <%= link_to 'Sign In', new_user_session_path, class: "btn btn-outline-secondary"  %>
+
+  
+<% end %>
+</div>

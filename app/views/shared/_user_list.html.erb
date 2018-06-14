@@ -1,0 +1,20 @@
+
+
+
+<div class="container-fluid user_list_bg">
+    <h2 class = "word_art2">Top Assignees</h2>
+        <div class="row align-middle ">
+    <% @top_assignees.each do |assignee| %>
+          <div class="col-md-2">
+
+
+          
+          <%=link_to image_tag(assignee.avatar , width: "60%", class: "img-circle"), user_path(assignee)%>
+          </div>
+    <% end %>
+        </div>
+        <div class= "footer"></div>
+   
+</div>
+
+

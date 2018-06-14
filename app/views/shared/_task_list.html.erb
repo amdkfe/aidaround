@@ -1,0 +1,15 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Latest Tasks</h2>
+        <% @tasks.newest.each do |task| %>
+          <div class="jumbotron task_list">
+            <h3><%= link_to task.title, task %></h3>
+            <p><%= task.address %> <%= task.desc %></p>
+            <p ><%= time_ago_in_words(task.created_at).gsub('about','') +" ago" %></p>
+          </div>
+        <% end %>
+      </div>
+     <%#= paginate @tasks %>
+    </div>
+  </div>
