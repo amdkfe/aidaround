@@ -21,11 +21,16 @@
     <h1>Latest Tasks</h1>
 
     <% @tasks.newest.each do |task| %>
-      <div>
-        <h5><%= task.points %> points | <%= link_to task.title, task %></h5>
-        <div><%= task.address %> <%= task.desc %>   </div>
-        <div>Creator: <%=task.owner_id %> <%= time_ago_in_words(task.created_at).gsub('about','') +" ago" %></div>
-      </div>
+      <div class="row">
+         <div class="col tasks">
+        <h5 style="color:#83878c"><%= task.points %> points </h5>
+         </div>
+         <div class="col">
+          <h5><%= link_to task.title, task %></h5>
+          <%= task.address %> <%= task.desc %>  
+          <p style="color:#83878c"><%= time_ago_in_words(task.created_at).gsub('about','') +" ago" %></p>
+        </div>
+        </div>
       <hr />
     <% end %>
 
@@ -42,6 +47,9 @@
 
   <!-- need to add scope for highest points -->
   <% @assignees.each do |assignee| %>
+    <div>
+       <%= image_tag assignee.avatar %>
+    </div>
     <div>
       <h5><%=link_to assignee.username.capitalize, user_path(assignee) %> | <%=assignee.points %> points </h5>
     </div>
@@ -73,32 +81,24 @@
 
     // var bounds = new google.maps.LatLngBounds();
 
-
- 
-
-
-
-
     //adding markers to the map
     tasks.forEach(function(task) {
         var content = `
-        <a href='/tasks/${task.id} style="text-decoration:none; " '>
-        <table >
-          <tr>
-            <td>
-              <img src="${task.title_icon}" width="85" style="margin-right:10px">
-            </td>
-            <td></td>
-            <td>
-              <h6><a style="color:#ec634a" href='/tasks/${task.id}'>${task.title}</a></h6>
-              <p style="color:#212529">${task.points} points </p>
-              <p style="color:#6f6f6f">${task.address}</a></p>
-            </td>
-          </tr>
-        </table>
-          </a>
-        `
-;
+                      <a href='/tasks/${task.id} style="text-decoration:none; " '>
+                      <table>
+                        <tr>
+                          <td>
+                            <img src="${task.title_icon}" width="85" style="margin-right:10px">
+                          </td>
+                          <td>
+                            <h6><a style="color:#1783b8" href='/tasks/${task.id}'>${task.title}</a></h6>
+                            <p style="color:#ec634a">${task.points} points </p>
+                            <p style="color:#6f6f6f">${task.address}</a></p>
+                          </td>
+                        </tr>
+                      </table>
+                        </a>
+                      `;
         map.addMarker({
           lat: task.latitude,
           lng: task.longitude, 
@@ -108,7 +108,7 @@
           }
         });
 
-        // bounds.extend(marker.position);
+        // bounds.extend(task.position);
      
     });
     // map.fitBounds(bounds);
