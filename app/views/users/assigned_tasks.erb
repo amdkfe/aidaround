@@ -1,23 +1,39 @@
 <!-- list of ASSIGNED tasks by a specific user -->
 <!-- called from :controller => user, :action => created_tasks -->
 
-<%= "#{@user.username.capitalize}'s assigned tasks" %> 
+ <div class="row taskShow task_list">
+    <div class="col-md-12" style="height: 120px">
+      <div id ="header">
+        <%= "#{@user.username.capitalize}'s assigned tasks" %> 
+      </div>
+    </div>
+  </div>
 
-<div>
   <%@task = @user.assigned_tasks%>
  
-  <div class = "taskList">
-    <% @task.newest.each do |i| %>
-    <div> <%= time_ago_in_words(i.created_at).gsub('about','') +" ago" %> </div>
-    <div> <%= i.status %> </div>
-    <div> <%= i.title.capitalize %> </div>
-    <div> <%= i.desc.capitalize %> </div>
-    <div> Valid until: <%= i.duration %> </div>
-    <div> Points: <%= i.points %> </div>
-    <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
-    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %></div>
-    
-    <div> <%= link_to 'Show created tasks', task_path(@tasklist.id) %></div>
-    <% end%>
+  <% @task.newest.each do |i| %>
+  <div class="row taskShow task_list">
+    <div class="col-md-12">
+      <div class="jumbotron">
+
+        
+        <div class = "row">
+          <div class = "col" style="width: 90%" >
+            <h3><b><%= i.title.capitalize %></b></h3>
+              <h5><%= @creator.address || @creator.postcode%></h5>
+              <hr/>
+              <div> <%= i.desc.capitalize %> </div>
+              <div> Valid until: <%= i.duration %> </div>
+              <div> Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
+
+              <div> <%= time_ago_in_words(i.created_at).gsub('about','') +" ago" %> </div>
+
+              <br/>
+              <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %></div>
+              <br/>
+              <div> <%= link_to 'Show created tasks', task_path(@tasklist.id) ,class: "btn btn-primary" %></div>
+    </div>
   </div>
 </div>
+<br />
+      <% end%>
