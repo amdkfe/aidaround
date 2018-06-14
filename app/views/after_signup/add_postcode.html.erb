@@ -7,7 +7,7 @@
 <%= tag.div nil, id: 'map' %>
 
 
-<%= form_for(current_user, as: current_user, url: wizard_path) do |f| %>
+<%= form_for(current_user, as: current_user, url: wizard_path, class: "form-inline") do |f| %>
   <div class="address">
     <%= f.text_field :postcode, placeholder: "Finding your address...", :id => "address" , :value =>'' %>
   </div>

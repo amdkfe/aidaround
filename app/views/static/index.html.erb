@@ -1,61 +1,30 @@
-
+<!-- <div class="row">
+  <div class="col-md-12"> -->
 <%= video_tag(
   'aidaround.mp4',
   id: 'video',
   autoplay: true,
   loop: true,
   muted: true,
-  poster: 'aidaround.jpg')
+  poster: 'aidaround.jpg',
+  class: "img-responsive")
 %>
+<!-- </div>
+</div> -->
+<div class = "word_art"> Aid Around </div>
 
-<button id="find">Tasks Around Me</button>
-
+<button type="button" class="btn btn-danger btn-lg align-middle" id="find">Tasks Around Me</button>
 
 <!-- getting the gmaps address method on tasks and convert them to json and store it in markers -->
-<%= tag.div nil, id: 'homemap', data: { tasks: @tasks.to_json } %>
+<%= tag.div nil, id: 'homemap', class: "img-responsive img-thumbnail",data: { tasks: @tasks.to_json } %>
 
 <!-- tasks -->
-<div class="row">
-  <div class="col">
-    <h1>Latest Tasks</h1>
+<%#= render 'shared/task_list' %>
 
-    <% @tasks.newest.each do |task| %>
-        <!-- <div class="row">
-         <div class="col tasks"> -->
-          <!-- <h5 style="color:#83878c"><%#= task.points %> points </h5> -->
-          <!-- <div class="col"> -->
-          <h5><%= link_to task.title, task %></h5>
-          <%= task.address %> <%= task.desc %>  
-          <p style="color:#83878c"><%= time_ago_in_words(task.created_at).gsub('about','') +" ago" %></p>
-          <!-- </div>
-        </div> -->
-      <hr />
-    <% end %>
-    </div>
-    <%#= paginate @tasks %>
-  </div>
-</div>
-
-
+<%= render 'shared/user_list' %>
 <!-- assignees -->
 
-<div class="row">
- <div class="col">
-  <h1>Top Assignees</h1>
 
-  <!-- need to add scope for highest points -->
-  <% @assignees.each do |assignee| %>
-    <div>
-       <%= image_tag assignee.avatar %>
-    </div>
-    <div>
-      <!-- <h5><#%=link_to assignee.username.capitalize, user_path(assignee) %> | <#%=assignee.points %> points </h5> -->
-    </div>
-    <hr />
-  <% end %>
-
-  </div>
-</div>
 
 <script>
   document.getElementById('find').onclick = myGps
@@ -63,9 +32,9 @@
   document.addEventListener("turbolinks:load", function() {
     var map = new GMaps({
       div: '#homemap',
-      lat: 51.5074,
-      lng: 0.1278,
-      zoom: 10,
+      lat: 51.4983,
+      lng: 0.1192,
+      zoom: 9.5,
     });
     //add the map var to the windows DOM
     window.map = map; 
