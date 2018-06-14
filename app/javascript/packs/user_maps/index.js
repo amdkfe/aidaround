@@ -44,8 +44,7 @@ document.addEventListener("turbolinks:load", function() {
                 $("#address").html(results[0].formatted_address);
                 $("#latitude").html(results[0].formatted_address);
                 address_field.value = results[0].formatted_address;
-                address_field.type = 'text';
-                save_button.type = 'submit';
+
                 lat_field.value = html5Lat;
                 lon_field.value = html5Lon;
                 var map = new GMaps({
@@ -57,6 +56,9 @@ document.addEventListener("turbolinks:load", function() {
                   lat: html5Lat,
                   lng: html5Lon
                   });
+                if (address_field.value){
+                    save_button.disabled = false;  
+                };
             } else {
                 alert('Geocode was not successful for the following reason: ' + status);
             }
