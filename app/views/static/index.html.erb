@@ -8,8 +8,7 @@
   poster: 'aidaround.jpg')
 %>
 
-
-<%#= render "search_bar" %>
+<button id="find">Tasks Around Me</button>
 
 
 <!-- getting the gmaps address method on tasks and convert them to json and store it in markers -->
@@ -59,13 +58,10 @@
   </div>
 </div>
 
-
-
 <script>
+  document.getElementById('find').onclick = myGps
 
   document.addEventListener("turbolinks:load", function() {
-
-    //sets a default lat long on the homepag map
     var map = new GMaps({
       div: '#homemap',
       lat: 51.5074,
@@ -73,15 +69,15 @@
       zoom: 10,
     });
     //add the map var to the windows DOM
-    window.map = map;
+    window.map = map; 
+    taskmap();
+  });
 
-    //get the homemap and parse the existing markers, store and add the to windows object//  
-    var tasks = JSON.parse(document.querySelector("#homemap").dataset.tasks);
-    window.tasks = tasks;
+  //get the homemap and parse the existing markers, store and add the to windows object//  
+  var tasks = JSON.parse(document.querySelector("#homemap").dataset.tasks);
+  window.tasks = tasks;
 
-    // var bounds = new google.maps.LatLngBounds();
-
-    //adding markers to the map
+  function taskmap(){
     tasks.forEach(function(task) {
         var content = `
                       <a href='/tasks/${task.id} style="text-decoration:none; " '>
@@ -106,11 +102,79 @@
           infoWindow: { 
             content: content
           }
-        });
+        });     
+    });    
+  };
 
-        // bounds.extend(task.position);
-     
-    });
-    // map.fitBounds(bounds);
-  });
+  function myGps() {
+      var currgeocoder;
+
+      navigator.geolocation.getCurrentPosition(function (position, html5Error) {
+          geo_loc = processGeolocationResult(position);
+          currLatLong = geo_loc.split(",");
+          initializeCurrent(currLatLong[0], currLatLong[1]);
+      });
+
+      function processGeolocationResult(position) {
+          html5Lat = position.coords.latitude; //Get latitude
+          html5Lon = position.coords.longitude; //Get longitude
+          html5TimeStamp = position.timestamp; //Get timestamp
+          html5Accuracy = position.coords.accuracy; //Get accuracy in meters
+          return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
+      }
+
+      function initializeCurrent(latcurr, longcurr) {
+          currgeocoder = new google.maps.Geocoder();
+
+
+          if (latcurr != '' && longcurr != '') {
+              var myLatlng = new google.maps.LatLng(latcurr, longcurr);
+              return getCurrentAddress(myLatlng);
+          }
+      }
+
+      //Get current address
+      function getCurrentAddress(location) {
+          currgeocoder.geocode({
+              'location': location
+          }, function (results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                  var map = new GMaps({
+                    div: '#homemap',
+                    lat: html5Lat,
+                    lng: html5Lon,
+                    zoom: 13,
+                  })
+              tasks.forEach(function(task) {
+                var content = `
+                      <a href='/tasks/${task.id} style="text-decoration:none; " '>
+                      <table>
+                        <tr>
+                          <td>
+                            <img src="${task.title_icon}" width="85" style="margin-right:10px">
+                          </td>
+                          <td>
+                            <h6><a style="color:#1783b8" href='/tasks/${task.id}'>${task.title}</a></h6>
+                            <p style="color:#ec634a">${task.points} points </p>
+                            <p style="color:#6f6f6f">${task.address}</a></p>
+                          </td>
+                        </tr>
+                      </table>
+                        </a>
+                      `;
+                map.addMarker({
+                    lat: task.latitude,
+                    lng: task.longitude, 
+                    title: task.title,
+                  infoWindow: { 
+                    content: content
+                  }
+                });     
+              }); 
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+      }
+  };
 </script>
