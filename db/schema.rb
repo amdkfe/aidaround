@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180613120919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "postcode"
-    t.integer "points"
+    t.integer "points", default: 100
     t.float "latitude"
     t.float "longitude"
     t.string "street"
