@@ -1,3 +1,8 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+
 <h1>Welcome <%= current_user.username.capitalize %> </h1>
 
 <div>
@@ -9,10 +14,23 @@
 </div>
 
 <div>
-  <%= link_to 'Create Tasks', {controller: "users", action: "show", id: current_user.id} %>
+  <br/>
+  <br/>
+  <%= link_to 'My Profile', {controller: "users", action: "show", id: current_user.id} , class: "btn btn-md btn-info btn-block"%>
 </div>
-
+<br/>
 <div>
-  <%= link_to 'Lets Aid Around', root_path %>
+  <%= link_to 'Or Lets Aid Around', root_path , class: "btn btn-secondary btn-md"%>
+</div>
+<br/>
+
+</div>
 </div>
 
+
+
+   </div>
+  </div>
+</div>
+</h4>
+</div>

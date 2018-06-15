@@ -1,17 +1,29 @@
+<div style="background-image:url('<%=@user.avatar%>'); background-size: cover;height: 20%;
+  background-position: center;">
+
+
+  <div class="container-fluid">
+
+
+
+
+
 <div>
-  <%= link_to 'Created tasks', created_tasks_user_path(params[:id]) %> 
+  <%#= image_tag @user.avatar, width: '100%', class: "background-content" %>
+</div>
+
+<div class="row taskShow">
+<div class="col-md-6">
+<div class="jumbotron home">
+
+<div class="row">
+<div class="col-md-12">
+   <%= image_tag @user.avatar, width: '30%', class: 'img-rounded'%>
+</div>
 </div>
 
 <div>
-  <%= link_to 'Assigned tasks', assigned_tasks_user_path(params[:id]) %>
-</div>
-
-<div>
-  <%= image_tag @user.avatar, width: '20%' %>
-</div>
-
-<div>
-  Username: <%= @user.username %>
+  <h2><%= @user.username %></h2>
 </div>
 
 <div>
@@ -20,9 +32,32 @@
 
 <div>
   Address: <%= @user.postcode %>
+
+
+
+    <div class="row">
+    <div class="col-md-12">
+      <br/>
+      <div class="btn-group" role="group">
+         
+        <button class="btn btn-info" type="button">
+          <%= link_to 'Created tasks', created_tasks_user_path(params[:id]) %>
+        </button> 
+        <button class="btn btn-info" type="button">
+          <%= link_to 'Assigned tasks', assigned_tasks_user_path(params[:id]) %>
+        </button> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>
 
-<%= tag.div nil, id: 'profilemap' %>
+<%= tag.div nil, id: 'profilemap', style: "width:100% ; height: 550px; z-index:3; margin: auto; top:200px" %>
+
+
+
 
 <script>
   var map = new GMaps({

@@ -14,7 +14,7 @@
             <% if @assignee.nil? %>
               <div> <%= link_to 'Accept it!', task_path(@task.id), method: :patch , class: "btn btn-primary btn-large" %></div>
             <% else %>
-              <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@task.assignee.id),class: "btn btn-primary btn-large" %> </div>
+              <div><%= link_to  "Assigned to #{@assignee.username.capitalize}", user_path(@task.assignee.id),class: "btn btn-md btn-success btn-large" %> </div>
             <%end %>
           </div>
         </div>
