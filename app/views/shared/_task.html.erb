@@ -1,21 +1,3 @@
-<!-- list of CREATED tasks by a specific user -->
-<!-- called from :controller => user, :action => created_tasks -->
-
-<%#= "#{@user.username.capitalize}'s created tasks" %> 
-
- <div class="row taskShow task_list">
-    <div class="col-md-12" style="height: 120px">
-      <div id ="header">
-        <%= "#{@user.username.capitalize}'s assigned tasks" %> 
-      </div>
-    </div>
-  </div>
-<%@task = @user.owned_tasks%>
-
-
-
-
-
 
 <% @task.newest.each do |i| %>
   <div class="row taskShow task_list">
@@ -35,24 +17,12 @@
               <div> <%= time_ago_in_words(i.created_at).gsub('about','') +" ago" %> </div>
 
               <br/>
-
-              <div>
-              <% if !@assignee = "" %>
-                Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %> 
-              <% else %>
-                <%= link_to "Show created tasks", task_path(@tasklist.id) %>
-              <%end %>
-</div>
+              <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@assignee) %></div>
               <br/>
-
-
-
-
               <div> <%= link_to 'Show created tasks', task_path(@tasklist.id) ,class: "btn btn-primary" %></div>
-      </div>
     </div>
+  </div>
 </div>
 <br />
-              <% end%>
-  
+      <% end%>
 

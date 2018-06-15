@@ -1,5 +1,10 @@
-<h1>Step 2</h1>
-<h2>Hey <%= current_user.username.capitalize %> how about a smiling photo?! </h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+<h3>Step 2</h3>
+<h4>Hey <%= current_user.username.capitalize %> how about a photo?! </h4>
+  <br/>
 
 <%= render "avatar" %> 
 
@@ -8,7 +13,7 @@
     <%= f.file_field :avatar, :id => "input", :onchange => "previewFile()" %>
   </div>
   <div class="actions">
-    <%= f.submit "Save" %>
+    <%= f.submit "Save",class: "btn btn-success" %>
   </div>
 <% end %>
 
@@ -16,10 +21,17 @@
   <%= link_to 'Next', next_wizard_path %>
 </div>
 
+
+    </div>
+  </div>
+</div>
+</h4>
+</div>
+
 <script type="text/javascript">
   
   function previewFile(){
-  var preview = document.querySelectorAll('img')[1];
+  var preview = document.querySelectorAll('img')[0];
   var file    = document.getElementById('input').files[0];
   var reader  = new FileReader();
 

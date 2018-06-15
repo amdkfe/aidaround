@@ -21,13 +21,13 @@
       <div class="col-md-12">
         <%= render 'shared/nav' %>
       </div> 
-        <!-- <div>
+        <div>
           <% flash.each do |key, value| %>
-            <div class="<%= flash_class(key) %>">
+            <div class="alert alert-info" style="width:100%; margin: 0px auto">
               <%= value %>
             </div>
           <% end %>
-        </div> -->
+        </div>
         <%= yield %>
         </div>
       </div>

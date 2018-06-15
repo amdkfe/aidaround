@@ -5,38 +5,34 @@
 <div class="row taskShow">
     <div class="col-md-12">
       <div class="jumbotron">
-
-        <h5>
-          Valid until: <%= @task.duration %>
-        </h5>
+        <div class = "row">
+          <div class = "col-md-2"style="width: 60%" >
+            <h3><b><%= @task.title.capitalize %></b></h3>   
+            <h5><%= @creator.address || @creator.postcode%></h5>
+          </div>
+          <div class ="col-md-2 button">
+            <% if @assignee.nil? %>
+              <div> <%= link_to 'Accept it!', task_path(@task.id), method: :patch , class: "btn btn-primary btn-large" %></div>
+            <% else %>
+              <div><%= link_to  "Assigned to #{@assignee.username.capitalize}", user_path(@task.assignee.id),class: "btn btn-md btn-success btn-large" %> </div>
+            <%end %>
+          </div>
+        </div>
         <br/>
         <hr/>
-        <h3> <b>
-          <%= @task.title.capitalize %></b>
-        </h3>
-        <h5>
-          <%= @creator.address || @creator.postcode%>
-        </h5>
+        <h5><%= @task.desc.capitalize %></h5>
+        <h5>Valid until: <%= @task.duration %></h5>
         <br/>
-        <h5>
-          <%= @task.desc.capitalize %>
-        </h5>
 
-        <br />
         <div>
           <div><%= image_tag @creator.avatar, width: '10%', class: 'img-rounded'%></div>
           <div><h5>Created by: <%= link_to  "#{@creator.username.capitalize}", user_path(@creator) %></div>
           <div> <%= time_ago_in_words(@task.created_at).gsub('about','') +" ago" %> </h5></div>
         </div>
-         <hr/>
-         <p>
-          <% if @assignee.nil? %>
-    <div> <%= link_to 'Accept it!', task_path(@task.id), method: :patch , class: "btn btn-primary btn-large" %></div>
-  <% else %>
-    <div> Assigned to: <%= link_to  "#{@assignee.username.capitalize}", user_path(@task.assignee.id),class: "btn btn-primary btn-large" %> </div>
-  <%end %>
-  <br/>
-      <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
+        <hr/>
+       
+        <br/>
+        <div> <%= link_to 'Back to the creator\'s page', created_tasks_user_path(@creator) %></div>
       </div>
     </div>
   </div>

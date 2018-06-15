@@ -1,4 +1,12 @@
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+
+
+
 <%= form_for @task do |f| %>
+  <div><h4>Let others help you in you daily tasks</h4>
   <div> <%= f.text_field :user_id , placeholder: "user_id", value: current_user.id, type:"hidden"%> </div>
   <div> <%= f.text_field :address , placeholder: "address", value: current_user.postcode, type:"hidden"%> </div>
   <div> <%= f.text_field :postcode , placeholder: "postcode", value: current_user.postcode, type:"hidden"%> </div>
@@ -12,13 +20,24 @@
   
   <%#= f.text_field :type , placeholder: "type", value: "OwnedTasks"%>
   <div> <%= f.text_field :status , placeholder: "status", value: "Open", type:"hidden"%> </div>
-  <div> <%= f.text_field :title , placeholder: "title"%> </div>
+  <br/>
+  <div> <%= f.text_field :title , placeholder: "whats your task about"%> </div>
+  <br/>
   <div> <%= f.text_field :title_icon, placeholder: "icon", value: current_user.avatar, type:"hidden"%> </div>
-  <div> <%= f.text_area :desc , placeholder: "description"%> </div>
+  <div> <%= f.text_area :desc , placeholder: "description", style: "width:100% ;height: 160px"%> </div>
   <div> <%= f.date_field :duration , placeholder: "duration"%> </div>
   <div> <%= f.file_field :images , placeholder: "images", type:"hidden"%> </div>
-  <div> <%= f.text_field :points , placeholder: "points" %> </div>
+  <div> <%= f.text_field :points , placeholder: "points", value: 1, type:"hidden"%> </div>
+  <br/>
   <div> <%= f.text_field :assignee_id , placeholder: "assignee_id", value: nil, type:"hidden" %> </div>
 
-  <div><%= f.submit 'Create' %></div>
+  <div><%= f.submit 'Create', class: "btn btn-md btn-block btn-warning" %></div>
 <% end %>
+
+
+
+
+</div>
+</div>
+</div>
+</div>

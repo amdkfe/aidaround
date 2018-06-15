@@ -1,7 +1,12 @@
 <%= javascript_pack_tag 'user_maps/index', 'data-turbolinks-track': 'reload' %>
 
-<h1>Step 3</h1>
-<h2>Great lets find your neighbourhood</h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+<h3>Step 3</h3>
+<h4>Great lets find your neighbourhood</h4>
 
 
 <%= tag.div nil, id: 'map' %>
@@ -16,9 +21,15 @@
     <%= f.text_field :longitude, placeholder: "longitude", :id => "longitude" , :value =>'', :type => 'hidden'%>
   </div>
   <div class="actions">
-    <%= f.submit "Save", :id => "save",  :disabled => true %>
+    <%= f.submit "Save", :id => "save",  :disabled => true ,class: "btn btn-success"  %>
   </div>
 <% end %>
+
+    </div>
+  </div>
+</div>
+</h4>
+</div>
 
 
 
