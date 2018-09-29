@@ -2,6 +2,11 @@
 
 This is the final project for a 4 months bootcamp i have attended and it belongs to We Got Coders Bootcamp (https://www.wegotcoders.com)
 
+
+## Visit the project live at: 
+https://aidaround.herokuapp.com
+
+
 ## What does it do  
 * User can register
 * User uploads a profile picture
@@ -14,10 +19,12 @@ This is the final project for a 4 months bootcamp i have attended and it belongs
 * Other users can accept the task
 * The accepted tasks will be shown in their profile
 * The acceptiee and a link to his/her profile is shown creator's page
- 
+
+
 ## The pivotal tracker's links   
 https://www.pivotaltracker.com/projects/2176092
 
+
 ## Visit my portfolio at:  
-http://www.kafaei.co.uk
+http://kafaei.co.uk
 
