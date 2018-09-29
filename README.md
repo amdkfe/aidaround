@@ -18,7 +18,7 @@ https://aidaround.herokuapp.com
 * Other users can browse tasks around them on the map
 * Other users can accept the task
 * The accepted tasks will be shown in their profile
-* The acceptiee and a link to his/her profile is shown creator's page
+* The acceptiee and a link to his/her profile is shown on the creator's page
 
 
 ## The pivotal tracker's links   
