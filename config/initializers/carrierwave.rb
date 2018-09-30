@@ -16,12 +16,12 @@ CarrierWave.configure do |config|
     cache_control: 'max-age=604800'
   }
 
-  # config.aws_credentials = {
-  #   access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
-  #   secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-  #   region:            ENV.fetch('AWS_REGION'), # Required
-  #   stub_responses:    Rails.env.test? # Optional, avoid hitting S3 actual during tests
-  # }
+  config.aws_credentials = {
+    access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
+    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+    region:            ENV.fetch('AWS_REGION'), # Required
+    # stub_responses:    Rails.env.test? # Optional, avoid hitting S3 actual during tests
+  }
 
   Aws.config.update({
     credentials: Aws::Credentials.new(ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY']),
